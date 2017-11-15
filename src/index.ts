@@ -45,7 +45,7 @@ const plugin: JupyterLabPlugin<IGitExtension> = {
  */
 export default plugin;
 
-export const EXTENSION_ID = 'jupyter.extensions.git_plugin'
+export const EXTENSION_ID = 'jupyter.extensions.git_plugin';
 
 export const IGitExtension = new Token<IGitExtension>(EXTENSION_ID);
 
@@ -116,7 +116,7 @@ function activate(app: JupyterLab, fb:FileBrowser, mainMenu: IMainMenu, restorer
   ].forEach(command =>{
     menu.addItem({command});
   });
-  
+
   [
     CommandIDs.setup_remotes,
     CommandIDs.tutorial_Pull,

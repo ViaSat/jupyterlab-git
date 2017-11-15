@@ -23,14 +23,13 @@
   },
   "dependencies": {
     "@angular/core": "^4.3.1",
-    "@jupyterlab/application": "^0.10.0",
-    "@jupyterlab/apputils": "^0.10.0",
-    "@jupyterlab/console": "^0.10.0",
-    "@jupyterlab/filebrowser": "^0.10.0",
-    "@jupyterlab/terminal": "^0.10.0",
+    "@jupyterlab/application": "^0.12.0",
+    "@jupyterlab/apputils": "^0.12.0",
+    "@jupyterlab/console": "^0.12.0",
+    "@jupyterlab/filebrowser": "^0.12.0",
+    "@jupyterlab/terminal": "^0.12.0",
     "@jupyterlab/theming": "^0.9.0",
     "@types/react": "^16.0.0",
-    "@types/react-dom": "^15.5.2",
     "jquery": "^2.2.0",
     "nbdime": "^0.4.0",
     "react": "^15.6.1",
@@ -48,11 +47,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zzhangjii/jupyterlab-git.git"
+    "url": "https://github.com/ViaSat/jupyterlab-git.git"
   },
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/zzhangjii/jupyterlab-git/issues"
+    "url": "https://github.com/ViaSat/jupyterlab-git/issues"
   },
-  "homepage": "https://github.com/zzhangjii/jupyterlab-git#readme"
+  "homepage": "https://github.com/ViaSat/jupyterlab-git#readme"
 }

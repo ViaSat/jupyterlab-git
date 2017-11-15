@@ -13,7 +13,7 @@ import {
 } from '@phosphor/widgets';
 
 import {
-  PathExt 
+  PathExt
 } from '@jupyterlab/coreutils';
 
 import {
@@ -172,7 +172,7 @@ export namespace StatusFiles {
     staged_files: any;
     unstaged_files: any;
     untracked_files: any;
-    
+
     app:JupyterLab;
     refresh: any;
   }
@@ -180,8 +180,8 @@ export namespace StatusFiles {
 
 export class StatusFiles extends React.Component<StatusFiles.IProps, StatusFiles.IState>{
   contextmenu_typeX: string;
-  contextmenu_typeY: string; 
-  contextmenu_file:string; 
+  contextmenu_typeY: string;
+  contextmenu_file:string;
 
   constructor(props: StatusFiles.IProps) {
     super(props);
@@ -248,7 +248,7 @@ export class StatusFiles extends React.Component<StatusFiles.IProps, StatusFiles
     this.state.contextmenu_untracked.addItem({ command: CommandIDs.git_file_Open });
     this.state.contextmenu_untracked.addItem({ command: CommandIDs.git_file_Track });
 
-    
+
   }
   handleClickStaged(event){//need to disable native action first
     event.preventDefault();
@@ -286,7 +286,7 @@ export class StatusFiles extends React.Component<StatusFiles.IProps, StatusFiles
       this.contextmenu_file = file;
       this.state.contextmenu_untracked.open(event.clientX, event.clientY);
   }
-  
+
 
   handleChange(event){
     if(event.target.value&&event.target.value!=''){
@@ -338,10 +338,10 @@ export class StatusFiles extends React.Component<StatusFiles.IProps, StatusFiles
     return (
       <div onContextMenu={(e)=>{e.preventDefault()}}>
         <div className= 'jp-Git-section-fileContainer' >
-          <div className='jp-Git-staged'>       
+          <div className='jp-Git-staged'>
               <span className='jp-Git-staged-header-label'> Staged({(this.props.staged_files).length})<button className={this.state.staged_show?`jp-Git-button ${JP_IMAGE_CARET_DOWN_WHITE}`:`jp-Git-button ${JP_IMAGE_CARET_RIGHT_WHITE}`} onClick={()=>this.dropdown_staged()}></button></span>
               <ToggleDisplay show={this.props.staged_files.length>0}>
-              
+
               <button className={`jp-Git-header-button ${GIT_BUTTON_RESET_WHITE}`} title='Reset all staged changes' onClick={()=>{reset_all_StagedNode(this.props.top_repo_path, this.props.refresh), this.init_input()}}></button>
               </ToggleDisplay>
           </div>
@@ -352,7 +352,7 @@ export class StatusFiles extends React.Component<StatusFiles.IProps, StatusFiles
               <textarea className='jp-Git-staged-commit-msg' disabled ={(this.props.staged_files).length==0} placeholder={(this.props.staged_files).length==0?'Stage your changes before commit':'Input message to commit staged changes'} value={this.state.commit_msg} onChange={this.handleChange}/>
               <input className={this.commit_box_class_selection(this.state.commit_disable, this.props.staged_files.length)} type="button" title='Commit' value={'\u2714'}  disabled={this.state.commit_disable} onClick={()=>{commit_all_StagedNode(this.state.commit_msg,this.props.top_repo_path, this.props.refresh),this.init_input()}}/>
               </form>
-              
+
                 {this.props.staged_files.map((file, file_index)=>
                     <li className={GIT_FILE} key={file_index}>
                     <span className={`${GIT_FILE_ICON} ${parseFileExtension(file.to)}`} />
@@ -367,7 +367,7 @@ export class StatusFiles extends React.Component<StatusFiles.IProps, StatusFiles
           </div>
          <div className= 'jp-Git-section-fileContainer'>
           <div className='jp-Git-unstaged' >
-              <span className='jp-Git-unstaged-header-label'> Unstaged({(this.props.unstaged_files).length})</span>  
+              <span className='jp-Git-unstaged-header-label'> Unstaged({(this.props.unstaged_files).length})</span>
               <ToggleDisplay show={this.props.unstaged_files.length>0}>
               <button className={this.state.unstaged_show?`jp-Git-button ${JP_IMAGE_CARET_DOWN}`:`jp-Git-button ${JP_IMAGE_CARET_RIGHT}`} onClick={()=>this.dropdown_unstaged()}></button>
               <button className={`jp-Git-header-button ${GIT_BUTTON_ADD}`} title='Stage all the changes' onClick={()=>add_all_UnstagedNode(this.props.top_repo_path, this.props.refresh)}></button>
@@ -442,8 +442,8 @@ async function open_listed_file(typeX: string,typeY: string, path:string, app:Ju
       (fb as any)._listing._manager.openOrReveal(open_file_path+path);
     }
     else{
-      console.log("Cannot open a folder here")
-    }; 
+      console.log("Cannot open a folder here");
+    };
   }catch(err0){}
 }
 
@@ -468,7 +468,7 @@ function reset_StagedNode(file:string, path:string, refresh){
   let git_temp = new Git();
   git_temp.reset(false, file, path).then(response=>{
     refresh();
-    
+
   });
 }
 
@@ -521,7 +521,7 @@ function discard_UnstagedNode(file:string, path:string, refresh){
 
 //functions for untracked nodes
 function add_all_UntrackedNode(path:string,refresh){
-  console.log('add all untracked')
+  console.log('add all untracked');
   let git_temp = new Git();
   git_temp.add_all_untracked(path).then(response=>{
     refresh();
